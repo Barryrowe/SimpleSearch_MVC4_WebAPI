@@ -18,7 +18,7 @@ namespace SearchPage.Tests.Controllers
             SearchResultController controller = new SearchResultController();
 
             SearchQuery query = new SearchQuery("test test", "NEWS");
-            IEnumerable<SearchResult> result = controller.Post(query);
+            IEnumerable<SearchResult> result = controller.Get(query);
 
             Assert.AreEqual(6, result.Count());
             Assert.AreEqual("test test test", result.FirstOrDefault().Description);
@@ -29,7 +29,7 @@ namespace SearchPage.Tests.Controllers
             SearchResultController controller = new SearchResultController();
 
             SearchQuery query = new SearchQuery("image", "IMAGE");
-            IEnumerable<SearchResult> result = controller.Post(query);
+            IEnumerable<SearchResult> result = controller.Get(query);
 
             Assert.AreEqual(5, result.Count());
             Assert.AreEqual("image image image", result.FirstOrDefault().Description);
@@ -41,7 +41,7 @@ namespace SearchPage.Tests.Controllers
             SearchResultController controller = new SearchResultController();
 
             SearchQuery query = new SearchQuery("video", "VIDEO");
-            IEnumerable<SearchResult> result = controller.Post(query);
+            IEnumerable<SearchResult> result = controller.Get(query);
 
             Assert.AreEqual(3, result.Count());
             Assert.AreEqual("video video video", result.FirstOrDefault().Description);

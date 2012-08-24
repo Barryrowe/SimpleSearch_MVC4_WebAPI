@@ -10,6 +10,10 @@ namespace SearchPage.Controllers
 {
     public class SearchResultController : ApiController
     {
+        //This is just a hardcoded Array of SearchResult items, but this is where the Controller would need some type of
+        //DbContext/Repository to ask for, and push search results into.  Once that were done, we would need to make sure
+        //the dependency is injected properly (through Ninject, Unity Service Locator, or some other tool), and mock up
+        //a bogus repo/context with dummy data like below for our test cases.
         SearchResult[] results = new SearchResult[]{
             new SearchResult() { Url="test.com", Description="test test test", mediaUrl="", ResultType="NEWS" },
             new SearchResult() { Url="test.com/test1", Description="test test test test test test", mediaUrl="", ResultType="NEWS" },
@@ -28,15 +32,10 @@ namespace SearchPage.Controllers
         };
 
         
+        //So simple...but the fact that the MODEL object has to have a 0 argument constructor really threw me for a loop. Thank god for a short response to a StackOverflow Answer.
         public IEnumerable<SearchResult> Get([FromUri]SearchQuery searchQuery)
         {            
             return results.Where(x => (x.ResultType == searchQuery.searchType && (x.Description.Contains(searchQuery.query) || x.Url.Contains(searchQuery.query))));
-        }
-        
-        public IEnumerable<SearchResult> Post([FromUri]SearchQuery searchQuery)
-        {
-            return results.Where(x => (x.ResultType == searchQuery.searchType && (x.Description.Contains(searchQuery.query) || x.Url.Contains(searchQuery.query))));
-        }
-
+        }        
     }
 }
