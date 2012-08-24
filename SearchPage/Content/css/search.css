@@ -1,0 +1,54 @@
+﻿#searchDiv {
+    margin: 20px;
+    text-align: center;  
+}
+
+#searchDiv input, #searchDiv select {
+    padding: 10px;
+    font-size: 2em;
+    border-radius: 5px;
+}
+
+#searchButtonContainer {
+    margin: 20px 20%;
+    text-align: center;
+}
+
+.searchButton {
+    font-size: 2.5em;
+    padding: 15px;
+    font-weight: bold;    
+    border-radius: 10px;
+    cursor: pointer;
+    background: #0094ff;
+    color: #0B0B0B;
+    border-color: #0030AA;
+}
+
+.searchButton:hover {
+    border: 1px solid #0052DD;
+    background: #33B7FF;
+    color: #000000;
+}
+
+.contentContainer {
+    width: 98%;
+    margin: 0 1%;
+    border-top: solid 4px #000000;
+    border-bottom: solid 4px #000000;
+}
+
+#resultContainer {
+    margin: 0 5%;
+    width: 90%;
+    list-style: none;
+    list-style-type: none;
+}
+
+#resultContainer li{
+    padding: 10px;
+}
+
+#resultContainer li.alt {
+    background: #808080;
+}
